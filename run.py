@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'myCookeys'
-# TO-DO remove uri from code
+# ---TO-DO--- remove uri from code
 # app.config["MONGO_URI"] = os.getenv('MONGO_URI',
 #                                     'mongodb://localhost:27017/myCookeys')
 app.config["MONGO_URI"] = os.getenv('MONGO_URI',
