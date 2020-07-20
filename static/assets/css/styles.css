@@ -8,3 +8,13 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+/* format card height on recipes.html */
+.card.small {
+    width: 450px;
+}
+
+/* add margin above form in addrecipe.html */
+.form {
+    margin-top: 5%;
+}
