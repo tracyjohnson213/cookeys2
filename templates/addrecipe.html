@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+
+<div class="row">
+  <form class="col s8" action="{{ url_for('insert_recipe')}}" method="POST">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              id="cookie_name"
+              name="cookie_name"
+              type="text"
+              class="validate"
+            />
+            <label for="cookie_name">Cookie Name</label>
+          </div>
+          <a
+            class="waves-effect waves-light btn-small"
+            onclick="copycookiename()"
+            >Add Name</a
+          >
+        </div>
+        <div class="row">
+          <p>
+            {% for cat in categories %}
+            <label>
+              <input
+                class="with-gap"
+                name="category_name"
+                id="category"
+                type="radio"
+              />
+              <span>{{cat.recipe_category.capitalize()}}</span>
+            </label>
+            {% endfor %}
+          </p>
+        </div>
+        <div class="row">
+          <div class="input-field col s3">
+            <textarea
+              id="qty"
+              name="qty"
+              class="materialize-textarea"
+            ></textarea>
+            <label for="qty">Qty</label>
+          </div>
+          <div class="input-field col s7">
+            <textarea
+              id="ingredient"
+              name="ingredient"
+              class="materialize-textarea"
+            ></textarea>
+            <label for="ingredient">Ingredient</label>
+          </div>
+          <a
+            onclick="addtoingredienttable()"
+            class="btn-floating btn-large waves-effect waves-light red"
+            ><i class="material-icons">add</i></a
+          >
+        </div>
+        <div class="row">
+          <div class="input-field col s10">
+            <textarea
+              id="summary"
+              name="summary"
+              class="materialize-textarea"
+            ></textarea>
+            <label for="summary">Sales Pitch</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s10">
+            <textarea
+              id="steps"
+              name="steps"
+              class="materialize-textarea"
+            ></textarea>
+            <label for="steps">Step</label>
+          </div>
+          <a
+            onclick="addtostepstable()"
+            class="btn-floating btn-large waves-effect waves-light red"
+            ><i class="material-icons">add</i></a
+          >
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <input
+              id="firstname"
+              name="firstname"
+              type="text"
+              class="validate"
+              required
+            />
+            <label for="firstname">First Name</label>
+          </div>
+          <div class="input-field col s4">
+            <input
+              id="lastname"
+              name="lastname"
+              type="text"
+              class="validate"
+              required
+            />
+            <label for="lastname">Last Name</label>
+          </div>
+          <a class="waves-effect waves-light btn-small" onclick="copyauthor()"
+            >Add Author</a
+          >
+        </div>
+        <div class="row">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>Upload Image</span>
+              <input type="file" />
+            </div>
+            <div class="file-path-wrapper">
+              <input
+                class="file-path validate"
+                name="image_source"
+                type="text"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="col s4">
+    <table>
+      <tbody>
+        <tr id="cookie_name_in_table">
+          <td colspan="2"></td>
+        </tr>
+
+        <tr>
+          <th>Qty</th>
+          <th>Ingredient</th>
+        </tr>
+
+        <tr>
+          <td id="qty_in_table"></td>
+          <td id="ingredient_in_table"></td>
+        </tr>
+
+        <tr id="steps_table">
+          <th>Number</th>
+          <th>Step</th>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td id="steps_in_table"></td>
+        </tr>
+
+        <tr>
+          <td id="firstname_in_table"></td>
+          <td id="lastname_in_table"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <a type="submit" class="waves-effect waves-light btn">Add Recipe</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

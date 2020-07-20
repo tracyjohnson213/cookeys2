@@ -33,7 +33,7 @@
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">Cookeys</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Add</a></li>
+          <li><a href="{{url_for('add_recipe')}}">Add</a></li>
           <li><a href="#">Edit</a></li>
           <li><a href="#">Delete</a></li>
           <li>
@@ -67,7 +67,7 @@
           <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Links</h5>
             <ul>
-              <li><a class="grey-text text-lighten-3" href="#">Add</a></li>
+              <li><a class="grey-text text-lighten-3" href="{{url_for('add_recipe')}}">Add</a></li>
               <li><a class="grey-text text-lighten-3" href="#!">Edit</a></li>
               <li><a class="grey-text text-lighten-3" href="#!">Delete</a></li>
               <li><a class="grey-text text-lighten-3" href="#!">Find</a></li>
@@ -88,6 +88,47 @@
 		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="{{url_for('static', filename='vendor/js/materialize.min.js')}}"></script>
+
+    <script type="text/javascript">
+        // scripts for add recipe form
+      function copycookiename() {
+        // takes inputted cookie name and copies to table
+        var n = document.getElementById("cookie_name").value;
+        document.getElementById("cookie_name_in_table").innerHTML = n;
+        document.getElementById("cookie_name").value = "";
+      }
+      function addtoingredienttable() {
+        // takes qty and ingredient input to fill ingredient_table
+        var q = document.getElementById("qty").value;
+        document.getElementById("qty_in_table").innerHTML = q;
+        document.getElementById("qty").value = "";
+        var i = document.getElementById("ingredient").value;
+        document.getElementById("ingredient_in_table").innerHTML = i;
+        document.getElementById("ingredient").value = "";
+      }
+      function addtostepstable() {
+        // takes steps input to fill steps_table
+        var s = document.getElementById("steps").value;
+        document.getElementById("steps_in_table").innerHTML = s;
+        document.getElementById("steps").value = "";
+      }
+      function copyfirstname() {
+        // takes inputted first and last names and copies to table
+        var f = document.getElementById("firstname").value;
+        document.getElementById("firstname_in_table").innerHTML = f;
+        document.getElementById("firstname").value = "";
+      }
+      function copylastname() {
+        // takes inputted first and last names and copies to table
+        var l = document.getElementById("lastname").value;
+        document.getElementById("lastname_in_table").innerHTML = l;
+        document.getElementById("lastname").value = "";
+      }
+      function copyauthor(){
+          copyfirstname();
+          copylastname();
+      }
+    </script>
 
 
 </body>
