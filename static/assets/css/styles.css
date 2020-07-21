@@ -18,3 +18,12 @@ body {
 .form {
     margin-top: 5%;
 }
+
+/* add margin above table in addrecipe.html */
+.table {
+  margin-top: 15%;
+}
+
+.cookie_name_table {
+  font-weight: bold;
+}

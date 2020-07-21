@@ -8,7 +8,7 @@ app.config["MONGO_DBNAME"] = 'myCookeys'
 # app.config["MONGO_URI"] = os.getenv('MONGO_URI',
 #                                     'mongodb://localhost:27017/myCookeys')
 app.config["MONGO_URI"] = os.getenv('MONGO_URI',
-                                    "mongodb+srv://tracyj:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
+                                    "mongodb+srv://admin:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
 
 mongo = PyMongo(app)
 

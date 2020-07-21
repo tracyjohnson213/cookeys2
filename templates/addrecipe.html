@@ -127,44 +127,50 @@
       </div>
     </div>
   </form>
-  
-  <div class="col s4">
-    <table class="steps_table">
+
+  <div class="table col s4">
+    <table
+      class="responsive-table"
+      id="cookie_name_table"
+    >
       <tbody>
-        <tr id="cookie_name_in_table">
-          <td colspan="2"></td>
-        </tr>
-
-        <tr>
-          <th>Qty</th>
-          <th>Ingredient</th>
-        </tr>
-
-        <tr>
-          <td id="qty_in_table"></td>
-          <td id="ingredient_in_table"></td>
-        </tr>
-
-        <tr id="step_table">
-          <th>Number</th>
-          <th>Step</th>
-        </tr>
-
-        <tr>
-          <td id="steps_table"></td>
-          <td id="steps_in_table"></td>
-        </tr>
-
-        <tr>
-          <td id="firstname_in_table"></td>
-          <td id="lastname_in_table"></td>
-        </tr>
+        <tr></tr>
       </tbody>
     </table>
-    
-    <div class="row">
-      <a type="submit" class="waves-effect waves-light btn">Add Recipe</a>
-    </div>
+
+    <table
+      class="responsive-table"
+      id="ingredient_table"
+    >
+      <tbody>
+        <th>Ingredients:</th>
+        <tr></tr>
+      </tbody>
+    </table>
+
+    <table
+      class="responsive-table"
+      id="steps_table"
+    >
+      <tbody>
+        <th>Steps:</th>
+        <tr></tr>
+      </tbody>
+    </table>
+
+    <table
+      class="responsive-table"
+      id="author_table"
+    >
+      <tbody>
+        <th>Submitted By:</th>
+        <tr></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row">
+    <button type="submit" name="action" class="waves-effect waves-light btn">Add Recipe</button>
   </div>
 </div>
 

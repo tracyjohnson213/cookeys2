@@ -1,42 +1,51 @@
 // scripts for add recipe form
-      
-      function copycookiename() {
-        document.getElementById("cookie_name").innerHTML = document.getElementById("cookie_name").value
-      }
+// https://github.com/sunnny4u/Retrive-user-input-and-show-them-on-web-page/blob/master/index.html
+var itemRowCount = 1;
+var itemCount = 0;
+var stepCount = 1;
 
-      function addtoingredienttable() {
-        // takes qty and ingredient input to fill ingredient_table
-        document.getElementById("qty").innerHTML = document.getElementById("qty_in_table").value
-        document.getElementById("ingredient").innerHTML = document.getElementById("ingredient_in_table").value
-      }
+function copy1frominput(table,input) {
+  var AddRow = document.getElementById(table);
+  var NewRow = AddRow.insertRow(-1);
+  input_in_table = document.getElementById(input).value;
+  var cel1 = NewRow.insertCell(0);
+  cel1.innerHTML = input_in_table;
+  document.getElementById(input).value = "";
+}
 
-      function addtostepstable() {
-        // takes steps input to fill steps_table
-        document.getElementById("steps").innerHTML = document.getElementById("steps_in_table").value
-        addRowCount('.steps_table');
-      }
+function copy2frominput(table,input,input2) {
+  var AddRow = document.getElementById(table);
+  var NewRow = AddRow.insertRow(-1);
+  input_in_table = document.getElementById(input).value;
+  input_in_table2 = document.getElementById(input2).value;
+  var cel1 = NewRow.insertCell(0);
+  var cel2 = NewRow.insertCell(1);
+  cel1.innerHTML = input_in_table;
+  cel2.innerHTML = input_in_table2;
+  document.getElementById(input).value = "";
+  document.getElementById(input2).value = "";
+}
 
-      function addRowCount(tableAttr) {
-        // https://mariusmateoc.com/blog/automatic-serial-number-row-in-html-table/
-        // auto number row in table
-        $(tableAttr).each(function(){
-            $('td#steps_table', this).each(function(i){
-            $(this).before('<td>'+(i+1)+'</td>');
-            });
-        });
-      }
+function copycookiename() {
+  copy1frominput('cookie_name_table','cookie_name');
+}
 
-      function copyfirstname() {
-        // takes inputted first and last names and copies to table
-        document.getElementById("firstname").innerHTML = document.getElementById("firstname_in_table").value
-      }
+function addtoingredienttable() {
+  copy2frominput('ingredient_table','qty','ingredient');
+}
 
-      function copylastname() {
-        // takes inputted first and last names and copies to table
-        document.getElementById("lastname").innerHTML = document.getElementById("lastname_in_table").value
-      }
+function copyauthor() {
+  copy2frominput('author_table','firstname','lastname');
+}
 
-      function copyauthor(){
-        copyfirstname();
-        copylastname();
-      }
+function addtostepstable() {
+  var AddRow = document.getElementById('steps_table');
+  var NewRow = AddRow.insertRow(-1);
+  steps_in_table = document.getElementById("steps").value;
+  var cel1 = NewRow.insertCell(0);
+  var cel2 = NewRow.insertCell(1);
+  cel1.innerHTML = stepCount + '. ';
+  cel2.innerHTML = steps_in_table;
+  stepCount = stepCount+1;
+  document.getElementById("steps").value = "";
+}
