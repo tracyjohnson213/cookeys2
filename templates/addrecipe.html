@@ -5,6 +5,7 @@
   <form class="col s8" action="{{ url_for('insert_recipe')}}" method="POST">
     <div class="row">
       <div class="col">
+        <!-- COOKIE NAME -->
         <div class="row">
           <div class="input-field col s8">
             <input
@@ -21,6 +22,8 @@
             >Add Name</a
           >
         </div>
+
+        <!-- CATEGORY -->
         <div class="row">
           <p>
             {% for cat in categories %}
@@ -36,6 +39,8 @@
             {% endfor %}
           </p>
         </div>
+
+        <!-- INGREDIENTS -->
         <div class="row">
           <div class="input-field col s3">
             <textarea
@@ -59,6 +64,8 @@
             ><i class="material-icons">add</i></a
           >
         </div>
+
+        <!-- SUMMARY -->
         <div class="row">
           <div class="input-field col s10">
             <textarea
@@ -69,6 +76,8 @@
             <label for="summary">Sales Pitch</label>
           </div>
         </div>
+
+        <!-- STEPS -->
         <div class="row">
           <div class="input-field col s10">
             <textarea
@@ -84,6 +93,8 @@
             ><i class="material-icons">add</i></a
           >
         </div>
+
+        <!-- AUTHOR -->
         <div class="row">
           <div class="input-field col s4">
             <input
@@ -109,6 +120,8 @@
             >Add Author</a
           >
         </div>
+
+        <!-- IMAGE -->
         <div class="row">
           <div class="file-field input-field">
             <div class="btn">
@@ -128,40 +141,50 @@
     </div>
   </form>
 
+  <!-- OUTPUT TABLE DISPLAY -->
   <div class="table col s4">
-    <table
-      class="responsive-table"
-      id="cookie_name_table"
-    >
+    <table class="responsive-table" id="cookie_name_table">
       <tbody>
         <tr></tr>
       </tbody>
     </table>
 
-    <table
-      class="responsive-table"
-      id="ingredient_table"
-    >
+    <table class="responsive-table" id="ingredient_table">
       <tbody>
         <th>Ingredients:</th>
         <tr></tr>
       </tbody>
     </table>
 
-    <table
-      class="responsive-table"
-      id="steps_table"
-    >
+    <table class="responsive-table" id="steps_table">
       <tbody>
         <th>Steps:</th>
         <tr></tr>
       </tbody>
     </table>
 
-    <table
-      class="responsive-table"
-      id="author_table"
-    >
+    <table class="responsive-table" id="image_table">
+      <tbody>
+        <tr>
+          <td
+            style="
+              width: 200px !important;
+              height: 200px !important;
+              border: 1px solid black;
+            "
+          >
+            <div style="width: auto; height: auto;">
+              <img
+                src="../static/assets/images/{{image_source}}"
+                width="150px"
+              />
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="responsive-table" id="author_table">
       <tbody>
         <th>Submitted By:</th>
         <tr></tr>
@@ -169,8 +192,11 @@
     </table>
   </div>
 
+  <!-- ADD BUTTON -->
   <div class="row">
-    <button type="submit" name="action" class="waves-effect waves-light btn">Add Recipe</button>
+    <button type="submit" name="action" class="waves-effect waves-light btn">
+      Add Recipe
+    </button>
   </div>
 </div>
 
