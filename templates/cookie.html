@@ -51,7 +51,7 @@
 			<div class="card-action">
 				<p>{{recipe.recipe_category}}</p>
 				<p>{{recipe.recipe_author}}</p>
-                <a href="#">Edit</a>
+                <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}">Edit</a>
 			<a href="#">Delete</a>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'myCookeys'
@@ -31,6 +32,32 @@ def get_cookie(cookie_name):
                            recipe=mongo.db.recipes.find_one(
                                {"cookie_name": cookie_name}),
                            cookie=the_cookie)
+
+
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    all_categories = mongo.db.categories.find()
+    return render_template('editrecipe.html',
+                            recipe=the_recipe,
+                            categories=all_categories)
+
+
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    recipes.update( {"_id": ObjectId(recipe_id)},
+    {
+        'cookie_name': request.form.get('cookie_name'),
+        'ingredients': request.form.get('ingredients'),
+        'qty': request.form.get('qty'),
+        'steps': request.form.get('steps'),
+        'author': request.form.get('recipe_author'),
+        'summary': request.form.get('summary'),
+        'category': request.form.get('recipe_category'),
+        'image': request.form.get('image_source')
+    })
+    return redirect(url_for('get_recipes'))
 
 
 if __name__ == '__main__':
