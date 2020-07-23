@@ -52,7 +52,7 @@
 				<p>{{recipe.recipe_category}}</p>
 				<p>{{recipe.recipe_author}}</p>
                 <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}">Edit</a>
-			<a href="#">Delete</a>
+			    <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
 			</div>
 		</div>
 	</div>

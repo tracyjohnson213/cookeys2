@@ -36,6 +36,7 @@ def get_cookie(cookie_name):
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
+    """ render form to edit recipe """
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_categories = mongo.db.categories.find()
     return render_template('editrecipe.html',
@@ -45,6 +46,7 @@ def edit_recipe(recipe_id):
 
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
+    """ update recipe in database """
     recipes = mongo.db.recipes
     recipes.update({"_id": ObjectId(recipe_id)},
                    {
@@ -71,6 +73,13 @@ def insert_recipe():
     """ insert recipe into database """
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('get_recipes'))
+
+
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    """ remove recipe from database """
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
 
 
