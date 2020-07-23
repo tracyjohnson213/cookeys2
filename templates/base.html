@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }}</title>
+    <!-- Favicon -->
+    <link rel="icon" 
+      type="image/png" 
+      href="/static/assets/images/cookeyfavicon.png" />
     <!-- Google Icon Font-->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -33,8 +37,7 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a class="brand-logo" href="{{url_for('get_recipes')}}"><img src="/static/assets/images/cookeylogo.png" alt="">
-        Cookeys</a>
+        <a class="brand-logo" href="{{url_for('get_recipes')}}"><img src="/static/assets/images/cookeylogo.png" alt=""></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="{{url_for('add_recipe')}}">Add</a></li>
           <!--<li><a href="#">Edit</a></li>
