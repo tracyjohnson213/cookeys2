@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -9,7 +9,7 @@ app.config["MONGO_DBNAME"] = 'myCookeys'
 # app.config["MONGO_URI"] = os.getenv('MONGO_URI',
 #                                     'mongodb://localhost:27017/myCookeys')
 app.config["MONGO_URI"] = os.getenv('MONGO_URI',
-                                    "mongodb+srv://tracyj:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
+                                    "mongodb+srv://admin:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
 
 mongo = PyMongo(app)
 
@@ -39,24 +39,38 @@ def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_categories = mongo.db.categories.find()
     return render_template('editrecipe.html',
-                            recipe=the_recipe,
-                            categories=all_categories)
+                           recipe=the_recipe,
+                           categories=all_categories)
 
 
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
-    recipes.update( {"_id": ObjectId(recipe_id)},
-    {
-        'cookie_name': request.form.get('cookie_name'),
-        'ingredients': request.form.get('ingredients'),
-        'qty': request.form.get('qty'),
-        'steps': request.form.get('steps'),
-        'author': request.form.get('recipe_author'),
-        'summary': request.form.get('summary'),
-        'category': request.form.get('recipe_category'),
-        'image': request.form.get('image_source')
+    recipes.update({"_id": ObjectId(recipe_id)},
+                   {
+                        'cookie_name': request.form.get('cookie_name'),
+                        'ingredients': request.form.get('ingredients'),
+                        'qty': request.form.get('qty'),
+                        'steps': request.form.get('steps'),
+                        'author': request.form.get('recipe_author'),
+                        'summary': request.form.get('summary'),
+                        'category': request.form.get('recipe_category'),
+                        'image': request.form.get('image_source')
     })
+
+
+@app.route('/add_recipe')
+def add_recipe():
+    """ render form to input new recipe """
+    return render_template('addrecipe.html',
+                           categories=mongo.db.categories.find())
+
+
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    """ insert recipe into database """
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
 
 

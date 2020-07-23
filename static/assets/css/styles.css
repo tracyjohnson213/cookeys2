@@ -9,7 +9,21 @@ body {
     flex: 1 0 auto;
   }
 
-/* format card height on get_recipes*/
+/* format card height on recipes.html */
 .card.small {
     width: 450px;
+}
+
+/* add margin above form in addrecipe.html */
+.form {
+    margin-top: 5%;
+}
+
+/* add margin above table in addrecipe.html */
+.table {
+  margin-top: 15%;
+}
+
+.cookie_name_table {
+  font-weight: bold;
 }
