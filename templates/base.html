@@ -28,18 +28,16 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='assets/css/styles.css') }}"
     />
-    <!-- Cookeys javascript -->
-    <script src="{{ url_for('static', filename='assets/js/scripts.js') }}"></script>
   </head>
 
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Cookeys</a>
+        <a class="brand-logo" href="{{url_for('get_recipes')}}">Cookeys</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="{{url_for('add_recipe')}}">Add</a></li>
-          <li><a href="#">Edit</a></li>
-          <li><a href="#">Delete</a></li>
+          <!--<li><a href="#">Edit</a></li>
+          <li><a href="#">Delete</a></li>-->
           <li>
             <form>
               <div class="input-field">
@@ -61,23 +59,17 @@
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
-            <h5 class="white-text">Cookeys</h5>
-            <p class="grey-text text-lighten-4">
+            <h5 class="white-text"><a class="grey-text text-lighten-3" href="{{url_for('get_recipes')}}">Cookeys</a></h5>
+            <!--<p class="grey-text text-lighten-4">
               You can use rows and columns here to organize your footer content.
-            </p>
+            </p>-->
           </div>
           <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Links</h5>
             <ul>
-              <li>
-                <a
-                  class="grey-text text-lighten-3"
-                  href="{{url_for('add_recipe')}}"
-                  >Add</a
-                >
-              </li>
-              <li><a class="grey-text text-lighten-3" href="#!">Edit</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Delete</a></li>
+              <li><a class="grey-text text-lighten-3" href="{{url_for('add_recipe')}}">Add</a></li>
+              <!--<li><a class="grey-text text-lighten-3" href="#!">Edit</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Delete</a></li>-->
               <li><a class="grey-text text-lighten-3" href="#!">Find</a></li>
             </ul>
           </div>
