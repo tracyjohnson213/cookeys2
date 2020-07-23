@@ -69,8 +69,7 @@
               id="summary"
               name="summary"
               class="materialize-textarea"
-              value="{{recipe.summary}}"
-            ></textarea>
+            >{{recipe.summary}}</textarea>
             <label for="summary">Sales Pitch</label>
           </div>
         </div>
@@ -84,8 +83,7 @@
               id="steps"
               name="steps"
               class="materialize-textarea"
-              value="{{item}}"
-            ></textarea>
+            >{{item}}</textarea>
           </div>
         </div>
         {% endfor %}
@@ -98,7 +96,7 @@
               name="firstname"
               type="text"
               class="validate"
-              value="{{fnmae}}"
+              value="{{recipe.firstname}}"
               required
             />
             <label for="firstname">First Name</label>
@@ -109,7 +107,7 @@
               name="lastname"
               type="text"
               class="validate"
-              value="{{lnmae}}"
+              value="{{recipe.lastname}}"
               required
             />
             <label for="lastname">Last Name</label>
@@ -119,7 +117,7 @@
         <!-- IMAGE -->
         <div class="row">
         <a target="_blank" href="{{recipe.image_source}}">
-            <img src="../static/assets/images/{{recipe.image_source}}" alt="{{recipe.image_source}}" style="width: 150px;" />
+            <img src="../static/assets/images/{{recipe.image_source}}" alt="{{recipe.image_source}}" />
           </a>
         </div>
         <div class="row">
