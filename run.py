@@ -39,6 +39,7 @@ def edit_recipe(recipe_id):
     """ render form to edit recipe """
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_categories = mongo.db.categories.find()
+    import pdb;pdb.set_trace()
     return render_template('editrecipe.html',
                            recipe=the_recipe,
                            categories=all_categories)
