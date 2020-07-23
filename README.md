@@ -96,6 +96,121 @@ Provide results in a manner that is visually appealing and user friendly.
 ## Testing
 
 ### Scenarios
+click link to go to page
+
+- [x] |navbar logo|/get_recipes|
+- [x] |footer logo|/get_recipes|
+- [x] |navbar add|/add_recipe|
+- [x] |footer add|/add_recipe|
+- [x] |recipe click for recipe|/get_cookie/<cookie_name>|
+- [x] |/get_cookie/<cookie_name> edit|/edit_recipe/<recipe_id>|
+- [ ] |/get_cookie/<cookie_name> delete||--FAILED
+- [ ] |navbar find||--FAILED
+- [ ] |footer find||--FAILED
+
+view on homepage /get_recipes
+- [x] all recipes in database
+- [x] recipes.cookie_name
+- [x] recipes.summary
+- [x] link = click for recipe
+
+click click for recipe link on get_cookie and view
+- [x] cookie name
+- [x] ingredients
+- [x] steps
+- [x] category
+- [x] author
+- [x] edit button
+- [x] delete button
+
+click link on get_cookie and view
+- [x] |edit button|/edit_recipe/<recipe_id>|
+- [ ] |delete button|request for confirmation of deletion|--FAILED
+- [x] |category|
+
+click confirm on confirmation of delete
+- [ ] recipe is deleted from database and system returns to get_recipes--FAILED
+
+- [ ] verify deletion of recipe--FAILED
+
+view form fields for add_recipe
+- [x] cookie name
+- [x] <categories>
+- [x] qty
+- [x] ingredients
+- [x] sales pitch
+- [x] step
+- [x] first name
+- [x] last name
+- [x] image_source
+
+view form buttons for add_recipe
+- [x] add name
+- [x] add qty & ingredient
+- [x] add step
+- [x] add author
+- [x] upload image
+- [x] add recipe
+
+click form button on add_recipe view addition in preview table 
+|button|addition|
+- [x] |add name|ccokie name|
+- [x] |add qty & ingredient|qty & ingredient|
+- [x] |add step|step|
+- [x] |add author| first name & last name|
+- [ ] |upload imageimage_thumbnail|--FAILED
+- [x] |add recipe
+
+click add recipe button on add_recipe form
+- [ ] confirm addition and return to get_recipes--FAILED
+
+verify field value additions for add_recipe
+- [x] cookie name
+- [x] <categories>
+- [x] qty
+- [x] ingredients
+- [x] sales pitch
+- [x] step
+- [x] first name
+- [x] last name
+- [x] image_source
+
+view form fields for edit_recipe
+- [x] cookie name
+- [x] <categories>
+- [x] qty
+- [x] ingredients
+- [x] sales pitch
+- [x] step
+- [x] first name
+- [x] last name
+- [x] image_source
+
+edit form fields for edit_recipe
+- [x] cookie name
+- [x] <categories>
+- [x] qty(s)
+- [x] ingredients
+- [x] sales pitch
+- [x] step(s)
+- [x] first name
+- [x] last name
+- [x] image_source
+
+click update recipe button on edit_recipe form
+- [ ] confirm update of each field and return to get_recipes--FAILED
+
+verify form field value updates for edit_recipe
+- [ ] cookie name--FAILED
+- [ ] <categories>--FAILED
+- [ ] qty(s)--FAILED
+- [ ] ingredients--FAILED
+- [ ] sales pitch--FAILED
+- [ ] step(s)--FAILED
+- [ ] first name--FAILED
+- [ ] last name--FAILED
+- [ ] image_source--FAILED
+- [ ] image_thumbnail--FAILED
 
 ## Deployment
 
