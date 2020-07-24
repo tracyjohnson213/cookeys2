@@ -3,7 +3,7 @@
 
 <div class="row">
   <form
-    class="col s10"
+    class="col s8"
     action="{{ url_for('update_recipe', recipe_id=recipe._id)}}"
     method="POST"
   >
@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col">
         <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s8">
             <input
               id="cookie_name"
               name="cookie_name"
@@ -28,13 +28,24 @@
           <p>
             {% for cat in categories %}
             <label>
+            {% if cat.recipe_category in recipe.recipe_category %}
               <input
                 class="with-gap"
                 name="category_name"
                 id="category"
                 type="radio"
                 value="{{recipe.recipe_category}}"
+                checked
               />
+            {% else %}
+              <input
+                class="with-gap"
+                name="category_name"
+                id="category"
+                type="radio"
+                value="{{cat.recipe_category}}"
+              />
+            {% endif %}
               <span>{{cat.recipe_category.capitalize()}}</span>
             </label>
             {% endfor %}
@@ -45,14 +56,14 @@
         {% set qyt = recipe.qty %} {% set ingred = recipe.ingredients %} {% for
         index in range(qyt|length) %}
         <div class="row">
-          <div class="input-field col s3">
+          <div class="input-field col s2">
             <textarea
               id="qty"
               name="qty"
               class="materialize-textarea"
             >{{qyt[index]}}</textarea>
           </div>
-          <div class="input-field col s9">
+          <div class="input-field col s6">
             <textarea
               id="ingredient"
               name="ingredient"
@@ -64,7 +75,7 @@
 
         <!-- SUMMARY -->
         <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s8">
             <textarea
               id="summary"
               name="summary"
@@ -78,7 +89,7 @@
         <p>Steps</p>
         {% set instructions = recipe.steps %} {% for item in instructions %}
         <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s8">
             <textarea
               id="steps"
               name="steps"
@@ -90,7 +101,7 @@
 
         <!-- AUTHOR -->
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s4">
             <input
               id="firstname"
               name="firstname"
@@ -101,7 +112,7 @@
             />
             <label for="firstname">First Name</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s4">
             <input
               id="lastname"
               name="lastname"
@@ -116,12 +127,14 @@
 
         <!-- IMAGE -->
         <div class="row">
-        <a target="_blank" href="{{recipe.image_source}}">
-            <img src="../static/assets/images/{{recipe.image_source}}" alt="{{recipe.image_source}}" />
-          </a>
+            <!--<a target="_blank" href="{{recipe.image_source}}">-->
+                <div class="input-field col s4">
+                    <img class="materialboxed" width="50%" src="../static/assets/images/{{recipe.image_source}}" alt="{{recipe.image_source}}" />
+                </div>
+            <!--</a>-->
         </div>
         <div class="row">
-          <div class="file-field input-field col s12">
+          <div class="file-field input-field col s8">
             <div class="btn">
               <span>Upload Image</span>
               <input type="file" />
@@ -135,8 +148,8 @@
               />
             </div>
           </div>
-          
         </div>
+        
       </div>
     </div>
   </form>

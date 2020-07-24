@@ -27,3 +27,8 @@ body {
 .cookie_name_table {
   font-weight: bold;
 }
+
+.edit_thumbnail {
+    width: 150px;
+    height: 150px;
+}

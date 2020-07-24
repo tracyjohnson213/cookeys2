@@ -18,12 +18,13 @@
 				{# combine qty and ingredient lists #}
 				{# TODO need to add line break after ingredient item #}
 				{# https://stackoverflow.com/questions/47761202/combine-two-lists-and-alternating-the-result-in-jinja #}
-				{%- set rows_combined = (recipe.qty, recipe.ingredients) -%}
+				
+                {%- set rows_combined = (recipe.qty, recipe.ingredients) -%}
 				{%- set lengths = [] %}
 
 				{%- for row in rows_combined -%}
-				{%- if lengths.append(row | length)-%}
-				{%- endif -%}
+                    {%- if lengths.append(row | length)-%}
+                    {%- endif -%}
 				{%- endfor -%}
 
 				{%- set max_length = (lengths | sort)[-1] -%}
@@ -31,21 +32,21 @@
 
 				{# Loops through a range of max_length #}
 				{%- for r in range(max_length) -%}
-				{# Loops through the tuple containing row_one and row_two #}
-				{%- for a in rows_combined -%}
-				{# checks if a[r] exists if based on current index, if so appends it rows #}
-				{%- if a[r] -%}
-				{%- if rows.append(a[r]) -%}
-				{%- endif -%}
-				{%- endif -%}
-				{%- endfor -%}
+                    {# Loops through the tuple containing row_one and row_two #}
+                    {%- for a in rows_combined -%}
+                        {# checks if a[r] exists if based on current index, if so appends it rows #}
+                        {%- if a[r] -%}
+                            {%- if rows.append(a[r]) -%}
+                            {%- endif -%}
+                        {%- endif -%}
+                    {%- endfor -%}
 				{%- endfor -%}
 
-				<ul>
+                <ul>
 					<li>{{ rows | join(' ') }}</li>
 				</ul>
 				<br />
-				<p>{{ recipe.steps | join(' \n') }}</p>
+				<p>{{ recipe.steps | join(' ') }}<br /></p>
 			</div>
 			<div class="card-action">
 				<p>{{recipe.recipe_category}}</p>
