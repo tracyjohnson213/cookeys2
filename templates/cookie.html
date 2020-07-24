@@ -5,7 +5,7 @@
 	<div class="nav-wrapper">
 		<div class="col s12">
 			<a href="{{url_for('get_recipes')}}" class="breadcrumb">Cookies</a>
-			<a href="#!" class="breadcrumb">{{recipe.recipe_category}}</a>
+			<a href="#!" class="breadcrumb">{{recipe.recipe_category.capitalize()}}</a>
 		</div>
 	</div>
 </nav>
@@ -49,7 +49,7 @@
 				<p>{{ recipe.steps | join(' ') }}<br /></p>
 			</div>
 			<div class="card-action">
-				<p>{{recipe.recipe_category}}</p>
+				<p>{{recipe.recipe_category.capitalize()}}</p>
                 {% set recipe_author = recipe.firstname + ' ' + recipe.lastname %}
 				<p>{{recipe_author}}</p>
                 <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}">Edit</a>
