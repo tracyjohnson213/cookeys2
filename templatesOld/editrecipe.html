@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+
+<div class="row">
+  <form
+    class="col s8"
+    action="{{ url_for('update_recipe', recipe_id=recipe._id)}}"
+    method="POST"
+  >
+    <!-- COOKIE NAME -->
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              id="cookie_name"
+              name="cookie_name"
+              type="text"
+              class="validate"
+              value="{{recipe.cookie_name.capitalize()}}"
+            />
+            <label for="cookie_name">Cookie Name</label>
+          </div>
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="row">
+          <p>
+            {% for cat in categories %}
+            <label>
+            {% if cat.recipe_category in recipe.recipe_category %}
+              <input
+                class="with-gap"
+                name="category_name"
+                id="category"
+                type="radio"
+                value="{{recipe.recipe_category}}"
+                checked
+              />
+            {% else %}
+              <input
+                class="with-gap"
+                name="category_name"
+                id="category"
+                type="radio"
+                value="{{cat.recipe_category}}"
+              />
+            {% endif %}
+              <span>{{cat.recipe_category.capitalize()}}</span>
+            </label>
+            {% endfor %}
+          </p>
+        </div>
+
+        <!-- INGREDIENTS -->
+        {% set qyt = recipe.qty %} {% set ingred = recipe.ingredients %} {% for
+        index in range(qyt|length) %}
+        <div class="row">
+          <div class="input-field col s2">
+            <textarea
+              id="qty"
+              name="qty"
+              class="materialize-textarea"
+            >{{qyt[index]}}</textarea>
+          </div>
+          <div class="input-field col s6">
+            <textarea
+              id="ingredient"
+              name="ingredient"
+              class="materialize-textarea"
+            >{{ingred[index]}}</textarea>
+          </div>
+        </div>
+        {% endfor %}
+
+        <!-- SUMMARY -->
+        <div class="row">
+          <div class="input-field col s8">
+            <textarea
+              id="summary"
+              name="summary"
+              class="materialize-textarea"
+            >{{recipe.summary}}</textarea>
+            <label for="summary">Sales Pitch</label>
+          </div>
+        </div>
+
+        <!-- STEPS -->
+        <p>Steps</p>
+        {% set instructions = recipe.steps %} {% for item in instructions %}
+        <div class="row">
+          <div class="input-field col s8">
+            <textarea
+              id="steps"
+              name="steps"
+              class="materialize-textarea"
+            >{{item}}</textarea>
+          </div>
+        </div>
+        {% endfor %}
+
+        <!-- AUTHOR -->
+        <div class="row">
+          <div class="input-field col s4">
+            <input
+              id="firstname"
+              name="firstname"
+              type="text"
+              class="validate"
+              value="{{recipe.firstname}}"
+              required
+            />
+            <label for="firstname">First Name</label>
+          </div>
+          <div class="input-field col s4">
+            <input
+              id="lastname"
+              name="lastname"
+              type="text"
+              class="validate"
+              value="{{recipe.lastname}}"
+              required
+            />
+            <label for="lastname">Last Name</label>
+          </div>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="row">
+            <!--<a target="_blank" href="{{recipe.image_source}}">-->
+                <div class="input-field col s4 thumbnail">
+                    <img class="materialboxed" width="50%" src="../static/assets/images/{{recipe.image_source}}" alt="{{recipe.image_source}}" />
+                </div>
+            <!--</a>-->
+        </div>
+        <div class="row">
+          <div class="file-field input-field col s8">
+            <div class="btn">
+              <span>Upload Image</span>
+              <input type="file" />
+            </div>
+            <div class="file-path-wrapper">
+              <input
+                class="file-path validate"
+                name="image_source"
+                type="text"
+                value="{{recipe.image_source}}"
+              />
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </form>
+
+  <!-- UPDATE BUTTON -->
+  <div class="row">
+    <button type="submit" name="action" class="waves-effect waves-light btn">
+      Update Recipe
+    </button>
+  </div>
+</div>
+
+{% endblock %}

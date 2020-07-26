@@ -1,4 +1,5 @@
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+<img src="/static/assets/images/cookeylogo.png" alt="cookeylogo">
 
 # Cookeys
 
@@ -9,23 +10,14 @@ The website is deployed to url = https://cookeys2.herokuapp.com/.
 The site has been recreated in order to fill the following demonstration:
 
 - Creation of a MongoDB backed Flask web application project that allows users to store and manipulate data records
-
 - Design of well suited database structure including nested relationships between records of different entities
-
 - Creation of CRUD functionality
-
 - Use of HTML and custom CSS for front end
-
 - Incorporation of main navigation menu and structured layout
-
 - Creation of valuable README.md
-
 - Git & Github version control
-
 - Clear separation of code written from code of external sources
-
 - Deployment to Heroku environment
-
 - No inclusion of passwords or secret keys in the project repository
 
 ## UX
@@ -45,11 +37,8 @@ Promote the sell of tools used to bake.
 ## Features
 
 Create a web application that allows users to store and easily access cookie recipes.
-
 A front end form and backend code that allows users to add new submission to the site, edit and delete them.
-
 Create front and back end functionality for users to locate tips based on fields; either full search functionality or just a directory.
-
 Provide results in a manner that is visually appealing and user friendly.
 
 ### Existing Features
@@ -74,11 +63,15 @@ Provide results in a manner that is visually appealing and user friendly.
 
 - [Adobe XD](https://www.adobe.com/products/xd.html) - _Adobe XD_ is a vector-based UI/UX design tool for web apps and mobile apps.
 
+- [Adobe Illustrator](https://www.adobe.com/products/illustrator.html) - _Adobe Illustrator_ is a vector graphics software.
+
 - [Wires wireframe kits for Adobe-XD](https://www.behance.net/gallery/55462459/Wires-free-wireframe-kits-for-Adobe-XD) - _wireframe UX kits_ for mobile and web, built exclusively for Adobe XD.
 
 * [favicon.cc](https://www.favicon.cc/) - _favicon.cc_ is a tool to create or download favicon icons.
 
-- [Wrike](https://wrike.com) - _Wrike_ is an Online Project Management Software platform.
+- [LunaPic](https://www9.lunapic.com/editor) - _LunaPic_ is a transparent background tool.
+
+- [Wrike](https://wrike.com) - _Wrike_ is an online project management software platform.
 
 - [StackEdit](https://www.stackedit.io) - README.md was generated within _StackEdit_, a full-featured, open-source Markdown editor based on PageDown, the Markdown library used by Stack Overflow and the other Stack Exchange sites.
 
@@ -96,17 +89,19 @@ Provide results in a manner that is visually appealing and user friendly.
 ## Testing
 
 ### Scenarios
-click link to go to page
-
+all pages
 - [x] |navbar logo|/get_recipes|
 - [x] |footer logo|/get_recipes|
 - [x] |navbar add|/add_recipe|
 - [x] |footer add|/add_recipe|
+- [ ] |navbar find||--FAILED
+- [ ] |footer find||--FAILED
+- [ ] favicon display on tab
+
+click link to go to page
 - [x] |recipe click for recipe|/get_cookie/<cookie_name>|
 - [x] |/get_cookie/<cookie_name> edit|/edit_recipe/<recipe_id>|
 - [ ] |/get_cookie/<cookie_name> delete||--FAILED
-- [ ] |navbar find||--FAILED
-- [ ] |footer find||--FAILED
 
 view on homepage /get_recipes
 - [x] all recipes in database
@@ -223,11 +218,8 @@ This section should describe the process you went through to deploy the project 
 The text for the site was copied from
 
 - 3 ingredient sugar cookies, https://www.delish.com/cooking/recipe-ideas/recipes/a45306/3-ingredient-sugar-cookies/
-
 - 5 ingredient easy chocalate chip cookies, https://www.allrecipes.com/recipe/244642/5-ingredient-easy-chocolate-chip-cookies/
-
 - 3 ingredient peanut butter cookies, https://www.biggerbolderbaking.com/3-ingredient-peanut-butter-cookies/
-
 - chocolate kiss powder puff cookies, https://www.averiecooks.com/chocolate-kiss-powder-puff-cookies/
 
 ### Media
@@ -235,7 +227,6 @@ The text for the site was copied from
 The photos used in this site were obtained from Google images.
 
 - sugar cookies
-
 - chocalate chip cookies
 
 Recipes:
@@ -247,65 +238,38 @@ Recipes:
 ### Personal Assessment Review:
 
 |Usability and Visual Impact|score |
-
 |--|--|
-
 |Project Purpose | |
-
 |UX design||
-
 |Suitability for purpose||
-
 |Navigation||
-
 |Ease of use||
-
 |Information Architecture||
-
 |Defensive Design||
 
 |Layout and Visual Impact|score|
-
 |--|--|
-
 |Responsive Design||
-
 |Image Presentation||
-
 |Color scheme and typography||
 
 |Code Quality|score|
-
 |--|--|
-
 |use of HTML||
-
 |use of CSS||
-
 |use of JavaScript||
-
 |use of Python||
-
 |use of template language||
 
 |S/W practices| score|
-
 |--|--|
-
 |directory structure and file naming||
-
 |version control||
-
 |testing implementation||
-
 |readme file||
-
 |comments||
-
 |data store integration||
-
 |deployment implementation||
-
 |deployment write up||
 
 0 = _requirement ignored_

@@ -1,0 +1,49 @@
+.change {
+    display: inline-block;
+    background: #f6b024;
+    color: #fff;
+    padding: 6px 20px 8px 20px;
+    transition: 0.3s;
+    font-size: 14px;
+    border-radius: 50px;
+}
+
+.addrecipe-form {
+  margin-top: 30px;
+  padding: 30px;
+}
+.addrecipe-form h4 {
+  font-weight: bold;
+  font-size: 22px;
+}
+.addrecipe-form p {
+  font-size: 14px;
+}
+.addrecipe-form input {
+  border-radius: 4px;
+  padding: 20px 10px;
+  font-size: 14px;
+}
+.addrecipe-form input:focus {
+  box-shadow: none;
+}
+
+.addrecipe-form textarea {
+  border-radius: 0;
+  padding: 10px 10px;
+  font-size: 14px;
+}
+
+.addrecipe-form textarea:focus {
+  box-shadow: none;
+}
+
+.addrecipe-form .form-group {
+  margin-bottom: 25px;
+}
+
+.addrecipe-form .btn-primary {
+  border-radius: 50px;
+  padding: 10px 30px;
+  border: 0;
+}

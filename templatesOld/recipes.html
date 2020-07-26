@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+
+{% for recipe in recipes %}
+
+<div class="row">
+	<div class="col s12 m5">
+		<div class="card small">
+			<div class="card-image">
+				<img src="../static/assets/images/{{recipe.image_source}}" alt="Photo for {{recipe.cookie_name}}">
+				<span class="card-title">{{recipe.cookie_name}}</span>
+			</div>
+			<div class="card-content">
+				<p>{{recipe.summary}}</p>
+			</div>
+			<div class="card-action">
+				<a href="{{url_for('get_cookie', cookie_name=recipe.cookie_name)}}">Click for recipe</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endfor %} {% endblock %}

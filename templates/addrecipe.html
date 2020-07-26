@@ -1,204 +1,207 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
 
-<div class="row">
-  <form class="col s8" action="{{ url_for('insert_recipe')}}" method="POST">
-    <div class="row">
-      <div class="col">
-        <!-- COOKIE NAME -->
-        <div class="row">
-          <div class="input-field col s8">
-            <input
-              id="cookie_name"
-              name="cookie_name"
-              type="text"
-              class="validate"
-            />
-            <label for="cookie_name">Cookie Name</label>
-          </div>
-          <a
-            class="waves-effect waves-light btn-small"
-            onclick="copycookiename()"
-            >Add Name</a
-          >
-        </div>
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container"></div>
+  </section>
+  <!-- End Breadcrumbs -->
 
-        <!-- CATEGORY -->
-        <div class="row">
+  <!-- ======= Add Recipe Form ======= -->
+  <section id="addrecipe-form" class="addrecipe-form">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h4>Add a Recipe</h4>
           <p>
-            {% for cat in categories %}
-            <label>
-              <input
-                class="with-gap"
-                name="category_name"
-                id="category"
-                type="radio"
-              />
-              <span>{{cat.recipe_category.capitalize()}}</span>
-            </label>
-            {% endfor %}
+            We would love to see your favorites! Required fields are marked *
           </p>
-        </div>
-
-        <!-- INGREDIENTS -->
-        <div class="row">
-          <div class="input-field col s3">
-            <textarea
-              id="qty"
-              name="qty"
-              class="materialize-textarea"
-            ></textarea>
-            <label for="qty">Qty</label>
-          </div>
-          <div class="input-field col s7">
-            <textarea
-              id="ingredient"
-              name="ingredient"
-              class="materialize-textarea"
-            ></textarea>
-            <label for="ingredient">Ingredient</label>
-          </div>
-          <a
-            onclick="addtoingredienttable()"
-            class="btn-floating btn-large waves-effect waves-light red"
-            ><i class="material-icons">add</i></a
-          >
-        </div>
-
-        <!-- SUMMARY -->
-        <div class="row">
-          <div class="input-field col s10">
-            <textarea
-              id="summary"
-              name="summary"
-              class="materialize-textarea"
-            ></textarea>
-            <label for="summary">Sales Pitch</label>
-          </div>
-        </div>
-
-        <!-- STEPS -->
-        <div class="row">
-          <div class="input-field col s10">
-            <textarea
-              id="steps"
-              name="steps"
-              class="materialize-textarea"
-            ></textarea>
-            <label for="steps">Step</label>
-          </div>
-          <a
-            onclick="addtostepstable()"
-            class="btn-floating btn-large waves-effect waves-light red"
-            ><i class="material-icons">add</i></a
-          >
-        </div>
-
-        <!-- AUTHOR -->
-        <div class="row">
-          <div class="input-field col s4">
-            <input
-              id="firstname"
-              name="firstname"
-              type="text"
-              class="validate"
-              required
-            />
-            <label for="firstname">First Name</label>
-          </div>
-          <div class="input-field col s4">
-            <input
-              id="lastname"
-              name="lastname"
-              type="text"
-              class="validate"
-              required
-            />
-            <label for="lastname">Last Name</label>
-          </div>
-          <a class="waves-effect waves-light btn-small" onclick="copyauthor()"
-            >Add Author</a
-          >
-        </div>
-
-        <!-- IMAGE -->
-        <div class="row">
-          <div class="file-field input-field">
-            <div class="btn">
-              <span>Upload Image</span>
-              <input type="file" />
+          <form action="{{ url_for('insert_recipe')}}" method="POST">
+            <p>Recipe</p>
+            <!-- COOKIE NAME -->
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input
+                  name="cookie_name"
+                  type="text"
+                  class="validate form-control"
+                />
+              </div>
+              <button onclick="copycookiename()"
+                ><i class="fas fa-plus-square">Add Name</i></button
+              >
             </div>
-            <div class="file-path-wrapper">
-              <input
-                class="file-path validate"
-                name="image_source"
-                type="text"
-              />
+
+            <!-- CATEGORY -->
+            <div class="row">
+              <div class="col-md-6 form-group">
+                {% for cat in categories %}
+                <input
+                  type="radio"
+                  id="category"
+                  name="category_name"
+                  value="{{cat.recipe_category.capitalize()}}"
+                />
+                <label for="category"
+                  >{{cat.recipe_category.capitalize()}}</label
+                >
+                {% endfor %}
+              </div>
+              <button onclick=""><i class="fas fa-plus-square">Add Category</i></button>
             </div>
-          </div>
+
+            <!-- INGREDIENTS -->
+            <div class="row">
+              <div class="col-md-2 form-group">
+                <textarea
+                  name="qty"
+                  class="form-control"
+                  placeholder="Qty"
+                ></textarea>
+              </div>
+              <div class="col-md-4 form-group">
+                <textarea
+                  name="ingredient"
+                  class="form-control"
+                  placeholder="Ingredient*"
+                ></textarea>
+              </div>
+              <button onclick="addtoingredienttable()"
+                ><i class="fas fa-plus-square">Add Ingredients</i></button
+              >
+            </div>
+
+            <!-- SUMMARY -->
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <textarea
+                  name="summary"
+                  class="form-control"
+                  placeholder="Sales Pitch"
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- STEPS -->
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <textarea
+                  name="steps"
+                  class="form-control"
+                  placeholder="Steps to Make*"
+                ></textarea>
+              </div>
+              <button onclick="addtostepstable()"
+                ><i class="fas fa-plus-square">Add Step</i></button
+              >
+            </div>
+
+            <!-- AUTHOR -->
+            <div class="row">
+              <div class="col-md-3 form-group">
+                <input
+                  name="firstname"
+                  type="text"
+                  class="form-control"
+                  placeholder="First Name*"
+                />
+              </div>
+              <div class="col-md-3 form-group">
+                <input
+                  name="lastname"
+                  type="text"
+                  class="form-control"
+                  placeholder="Last Name*"
+                />
+              </div>
+              <button onclick="copyauthor()"
+                ><i class="fas fa-plus-square">Add Author</i></button
+              >
+            </div>
+
+            <!-- IMAGE -->
+            <div class="row">
+              <div class="col-md-4 form-group">
+                <input type="file" name="image_source" id="fileToUpload" />
+              </div>
+            </div>
+
+            <!-- ADD BUTTON -->
+            <button type="submit" class="btn btn-primary">Add Recipe</button>
+          </form>
+          <!-- End form -->
+        </div>
+
+        <!-- ======= Add Recipe Result Table ======= -->
+        <div class="col-lg-4">
+                <div class="sidebar">
+
+        <div class="entry-content">
+          {%- if cookie_name == '' %}
+          <table class="responsive-table" id="cookie_name_table">
+            <tbody>
+              <tr></tr>
+            </tbody>
+          </table>
+
+          <blockquote>
+            <i class="icofont-quote-left quote-left"></i>
+            <p></p>
+            <i class="las la-quote-right quote-right"></i>
+            <i class="icofont-quote-right quote-right"></i>
+          </blockquote>
+
+          <table class="responsive-table" id="ingredient_table">
+            <tbody>
+              <th>Ingredients:</th>
+              <tr></tr>
+            </tbody>
+          </table>
+
+          <table class="responsive-table" id="steps_table">
+            <tbody>
+              <th>Steps:</th>
+              <tr></tr>
+            </tbody>
+          </table>
+
+          <table class="responsive-table" id="image_table">
+            <tbody>
+              <tr>
+                <td
+                  style="
+                    width: 50% !important;
+                    height: 50% !important;
+                    border: 1px solid black;
+                  "
+                >
+                  <div style="width: auto; height: auto;">
+                    <img
+                      class="materialboxed"
+                      src="../static/assets/images/{{image_source}}"
+                      width="50%"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="responsive-table" id="author_table">
+            <tbody>
+              <th>Submitted By:</th>
+              <tr></tr>
+            </tbody>
+          </table>
+          {% endif %}
         </div>
       </div>
     </div>
-  </form>
-
-  <!-- OUTPUT TABLE DISPLAY -->
-  <div class="table col s4">
-    <table class="responsive-table" id="cookie_name_table">
-      <tbody>
-        <tr></tr>
-      </tbody>
-    </table>
-
-    <table class="responsive-table" id="ingredient_table">
-      <tbody>
-        <th>Ingredients:</th>
-        <tr></tr>
-      </tbody>
-    </table>
-
-    <table class="responsive-table" id="steps_table">
-      <tbody>
-        <th>Steps:</th>
-        <tr></tr>
-      </tbody>
-    </table>
-
-    <table class="responsive-table" id="image_table">
-      <tbody>
-        <tr>
-          <td
-            style="
-              width: 50% !important;
-              height: 50% !important;
-              border: 1px solid black;
-            "
-          >
-            <div style="width: auto; height: auto;">
-              <img
-                class="materialboxed"
-                src="../static/assets/images/{{image_source}}"
-                width="50%"
-              />
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table class="responsive-table" id="author_table">
-      <tbody>
-        <th>Submitted By:</th>
-        <tr></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ADD BUTTON -->
-  <div class="row">
-    <button type="submit" name="action" class="waves-effect waves-light btn">
-      Add Recipe
-    </button>
-  </div>
-</div>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- End #main -->
 
 {% endblock %}
