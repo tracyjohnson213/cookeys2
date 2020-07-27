@@ -1,4 +1,5 @@
-      // scripts for add recipe form
+// scripts for add recipe form
+
       var itemRowCount = 1;
       var itemCount = 0;
       var stepCount = 1;

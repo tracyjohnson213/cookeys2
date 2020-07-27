@@ -69,7 +69,7 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <a href="#header" class="logo mr-auto scrollto"><img src="static/assets/img/cookeytextlogo.png" alt="" class="img-fluid"></a>-
+      <a href="#header" class="logo mr-auto scrollto"><img src="../static/assets/img/cookeytextlogo.png" alt="" class="img-fluid"></a>-
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
@@ -193,9 +193,27 @@
 
   <!-- Template Main JS File -->
   <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <!-- SCRIPTS -->
+    <script>
+      // scripts for add recipe form
+      function addtoingredienttable() {
+          addtextarea("qty", "Qty");
+          addtextarea("ingredients", "Ingredient");
+      }
 
-  <!-- JS File -->
-  <script src="{{ url_for('static', filename='assets/js/scripts.js') }}"></script>
+      function addtostepstable() {
+          addtextarea("steps", "Steps to Make");
+      }
+
+      function addtextarea(id, placeholder) {
+          var div = document.getElementById(id);
+            var input = document.createElement("textarea");
+            input.name = id+'[]';
+            input.className = "form-control";
+            input.placeholder = placeholder;
+            div.appendChild(input); //appendChild
+      }
+    </script>
 
 </body>
 
