@@ -220,7 +220,8 @@ The text for the site was copied from
 - 3 ingredient sugar cookies, https://www.delish.com/cooking/recipe-ideas/recipes/a45306/3-ingredient-sugar-cookies/
 - 5 ingredient easy chocalate chip cookies, https://www.allrecipes.com/recipe/244642/5-ingredient-easy-chocolate-chip-cookies/
 - 3 ingredient peanut butter cookies, https://www.biggerbolderbaking.com/3-ingredient-peanut-butter-cookies/
-- chocolate kiss powder puff cookies, https://www.averiecooks.com/chocolate-kiss-powder-puff-cookies/
+- Chocolate kiss powder puff cookies, https://www.averiecooks.com/chocolate-kiss-powder-puff-cookies/
+- Types of Cookies, https://www.thenibble.com/reviews/main/cookies/cookies2/cookie-history3.asp
 
 ### Media
 
