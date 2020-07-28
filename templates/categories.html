@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <a href="{{url_for('get_categories')}}">Categories</a>
+        <a class="float-right cta-btn" href="{{url_for('add_category')}}">Add Category</a>
+    </div>
+  </section>
+  
+  <!-- End Breadcrumbs -->
+
+  <!-- ======= Categories Section ======= -->
+    <section id="icon-boxes" class="icon-boxes">
+      <div class="container">
+
+        <div class="row">
+        {% for category in categories %}
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4 class="title"><a href="">{{category.recipe_category}}</a></h4>
+              <p class="description">{{category.category_desc}}</p>
+                <a href="{{url_for('add_category')}}" >Edit</a>
+                <a href="{{url_for('add_category')}}">Delete</a>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+        
+      </div>
+    </section><!-- End Icon Boxes Section -->
+
+    
+</main>
+
+{% endblock %}

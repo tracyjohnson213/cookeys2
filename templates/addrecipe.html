@@ -48,6 +48,9 @@
                 {% endfor %}
               </div>
             </div>
+            <a href="{{url_for('add_category')}}"
+              ><i class="fas fa-plus-square">Add Category</i></a
+            >
 
             <!-- INGREDIENTS -->
             <div class="row">
@@ -66,11 +69,10 @@
                   required
                 ></textarea>
               </div>
-              
             </div>
-            <button onclick="addtoingredienttable()"
-                ><i class="fas fa-plus-square">Add Ingredient</i></button
-              >
+            <button onclick="addtoingredienttable()">
+              <i class="fas fa-plus-square">Add Ingredient</i>
+            </button>
 
             <!-- SUMMARY -->
             <div class="row">
@@ -95,11 +97,10 @@
                   required
                 ></textarea>
               </div>
-              
             </div>
-            <button onclick="addtostepstable()"
-                ><i class="fas fa-plus-square">Add Step</i></button
-              >
+            <button onclick="addtostepstable()">
+              <i class="fas fa-plus-square">Add Step</i>
+            </button>
 
             <!-- AUTHOR -->
             <div class="row">
@@ -127,7 +128,12 @@
             <div class="row">
               <div class="col-md-4 form-group">
                 <span>Upload Image</span>
-                <input type="file" name="image_source" id="fileToUpload" required/>
+                <input
+                  type="file"
+                  name="image_source"
+                  id="fileToUpload"
+                  required
+                />
               </div>
             </div>
 

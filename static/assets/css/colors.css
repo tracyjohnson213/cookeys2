@@ -69,12 +69,14 @@ a:hover {
   background: transparent;
 }
 
-#topbar .cta a {
+#topbar .cta a,
+.category a {
   color: #fff;
   background: #f6b024;
 }
 
-#topbar .cta a:hover {
+#topbar .cta a:hover,
+.category a {
   background: #f1a40a;
 }
 
