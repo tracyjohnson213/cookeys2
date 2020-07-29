@@ -54,23 +54,25 @@
             >
 
             <!-- INGREDIENTS -->
-            <div class="row">
-              <div class="col-md-2 form-group" id="qty">
-                <textarea
-                  name="qty"
-                  class="form-control"
-                  placeholder="Qty"
-                ></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-4 form-group" id="ingredients">
-                <textarea
-                  name="ingredients"
-                  class="form-control"
-                  placeholder="Ingredient"
-                  required
-                ></textarea>
-                <div class="validate"></div>
+            <div class="container" id="ingredient">
+              <div class="row">
+                <div class="col-md-2 form-group" id="qty">
+                  <textarea
+                    name="qty[0]"
+                    class="form-control"
+                    placeholder="Qty"
+                  ></textarea>
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group" id="ingredients">
+                  <textarea
+                    name="ingredients[0]"
+                    class="form-control"
+                    placeholder="Ingredient"
+                    required
+                  ></textarea>
+                  <div class="validate"></div>
+                </div>
               </div>
             </div>
             <button onclick="addtoingredienttable()">
@@ -91,16 +93,18 @@
             </div>
 
             <!-- STEPS -->
-            {% set stepcount = 0 %}
-            <div class="row">
-              <div class="col-md-6 form-group" id="steps">
-                <textarea
-                  name="steps"
-                  class="form-control"
-                  placeholder="Steps to Make"
-                  required
-                ></textarea>
-                <div class="validate"></div>
+            <div class="container" id="step">
+              <div class="row">
+              <h4>Step 1:</h4>
+                <div class="col-md-6 form-group" id="steps">
+                  <textarea
+                    name="steps[0]"
+                    class="form-control"
+                    placeholder="Steps to Make"
+                    required
+                  ></textarea>
+                  <div class="validate"></div>
+                </div>
               </div>
             </div>
             <button onclick="addtostepstable()">
@@ -145,8 +149,8 @@
             </div>
 
             <!-- ADD BUTTON -->
-            <div class=" text-center">
-            <button type="submit" class="btn btn-primary">Add Recipe</button>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Add Recipe</button>
             </div>
           </form>
           <!-- End form -->
