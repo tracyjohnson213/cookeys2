@@ -1,6 +1,68 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
 
+      <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-cntent-center align-items-center">
+    <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Cookeys</span></h2>
+          <p class="animate__animated animate__fadeInUp">Who doesn’t love a cookie. Just think: Without ovens, we wouldn’t have these delightful treats. In fact, the cookie was invented in the days before thermostats, as a test to see if primitive ovens were the right temperature to bake cakes. Rather than ruin an entire cake, a “little cake,” or cookie, was tested first. At the time, no one thought the “test cake” would become a treat with charms of its own. We would love to see your favorite recipes for cookies!</p>
+          <a href="{{url_for('add_recipe')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Add Recipe</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <!--<div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
+          <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+          <a href="{{url_for('get_categories')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Add Cookie Type</a>
+        </div>
+      </div>-->
+
+      <!-- Slide 3 -->
+      <!--<div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
+          <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+          <a href="# class="btn-get-started animate__animated animate__fadeInUp scrollto">Our Mission</a>
+        </div>
+      </div>-->
+
+      <!-- Slide 4 -->
+      <!--<div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
+          <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Our Team</a>
+        </div>
+      </div>-->
+
+      <!-- Slide 5 -->
+      <!--<div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
+          <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Contact Us</a>
+        </div>
+      </div>-->
+
+      <!--<a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>-->
+
+    </div>
+  </section><!-- End Hero -->
+
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -43,7 +105,7 @@
               </div>
 
               <div class="entry-content">
-                <p>{{recipe.summary}}</p>
+                <p>{{recipe.summary|truncate(60, True) }}</p>
                 <div class="read-more">
                   <a href="{{url_for('get_cookie', cookie_name=recipe.cookie_name)}}">Full Recipe</a>
                 </div>
@@ -68,6 +130,27 @@
 
       </div>
     </section><!-- End Blog Section -->
+
+    
+    <!-- ======= Icon Boxes Section ======= -->
+    <section id="icon-boxes" class="icon-boxes">
+      <div class="container">
+
+      <div class="row">
+        {% for category in categories %}
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4 class="title"><a href="">{{category.recipe_category}}</a></h4>
+              <p class="description">{{category.category_desc|truncate(30, True) }}</p>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+        
+      </div>
+    </section><!-- End Icon Boxes Section -->
 
   </main><!-- End #main -->
 

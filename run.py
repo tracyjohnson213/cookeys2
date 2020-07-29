@@ -20,6 +20,7 @@ def get_recipes():
     """ render all recipes """
     return render_template('recipes.html',
                            recipes=mongo.db.recipes.find(),
+                           categories=mongo.db.categories.find(),
                            title='Recipes')
 
 

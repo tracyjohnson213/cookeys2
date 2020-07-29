@@ -397,10 +397,13 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 80vh;
+  /*height: 80vh;*/
+  /* added */
+  margin-top: 55px;
   overflow: hidden;
   position: relative;
-  background: url("../img/hero-bg.jpg") top center;
+  /*updated with logo */
+  background: url("../img/cookeylogo.png") top center;
   background-size: cover;
   margin-bottom: -90px;
 }
