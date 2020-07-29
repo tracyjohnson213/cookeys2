@@ -42,34 +42,12 @@
               </div>
 
               <div class="entry-content">
-                {# combine qty and ingredient lists #}
-				{# TODO need to add line break after ingredient item #}
-				{# https://stackoverflow.com/questions/47761202/combine-two-lists-and-alternating-the-result-in-jinja #}
-				
-                {%- set rows_combined = (recipe.qty, recipe.ingredients) -%}
-				{%- set lengths = [] %}
-
-				{%- for row in rows_combined -%}
-                    {%- if lengths.append(row | length)-%}
-                    {%- endif -%}
-				{%- endfor -%}
-
-				{%- set max_length = (lengths | sort)[-1] -%}
-				{%- set rows = [] -%}
-
-				{# Loops through a range of max_length #}
-				{%- for r in range(max_length) -%}
-                    {# Loops through the tuple containing row_one and row_two #}
-                    {%- for a in rows_combined -%}
-                        {# checks if a[r] exists if based on current index, if so appends it rows #}
-                        {%- if a[r] -%}
-                            {%- if rows.append(a[r]) -%}
-                            {%- endif -%}
-                        {%- endif -%}
-                    {%- endfor -%}
-				{%- endfor -%}
-
-                <p>{{ rows | join(' ') }}</p>
+              <ul>
+                {% set ingredientslist = recipe.ingredients.split('-') %}
+                {% for item in ingredientslist %}
+                <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
 
                 <blockquote>
                   <i class="icofont-quote-left quote-left"></i>
@@ -78,7 +56,13 @@
                   <i class="icofont-quote-right quote-right"></i>
                 </blockquote>
 
-                <p>{{ recipe.steps | join(' ') }}</p>
+                <ol>
+                {% set stepslist = recipe.steps.split('-') %}
+                {% set i = 1 %}
+                {% for item in stepslist %}
+                <li>{{ item }}</li>
+                {% endfor %}
+                </ol>
 
                 <div class="float-right">
                     <a class="change" href="{{url_for('edit_recipe', recipe_id=recipe._id)}}">Edit Recipe</a>

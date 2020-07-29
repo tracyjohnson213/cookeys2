@@ -286,68 +286,106 @@
     <!-- SCRIPTS -->
     <script>
       // scripts for add recipe form
-      // https://mattstauffer.com/blog/a-little-trick-for-grouping-fields-in-an-html-form/
+      // https://jsfiddle.net/v5unL369/1/
+        var str = [];
+        var htmlContent='';
+        var textAreaContent='';
 
-      function addtoingredienttable() {
-        let i = $(".addrecipe-form").find("textarea[name^='ingredient']").length;
-        let template = `
-            <div class="row">
-                <div class="col-md-2 form-group" id="qty">
-                    <textarea
-                        name="qty[${i}]"
-                        class="form-control"
-                        placeholder="Qty"
-                    ></textarea>
-                    <div class="validate"></div>
-                </div>
-                <div class="col-md-4 form-group" id="ingredients">
-                    <textarea
-                        name="ingredient[${i}]"
-                        class="form-control"
-                        placeholder="Ingredient"
-                        required
-                    ></textarea>
-                    <div class="validate"></div>
-                <button class="remove-ingredient">Remove</button>
-            </div>
-            `;
+      // scripts for add ingredients
+        let display = '#display_ingredients';
+        let textareaname = '#ingredients';
 
-        let container = document.getElementById('ingredient');
-        let div = document.createElement("div");
-        div.innerHTML = template;
-        container.appendChild(div);
+        $(document).ready(function(){
+            str.forEach(element => htmlContent += "<li>"+element+"</li>");
+            $(display).html(htmlContent);
+            var i=1;
+            str.forEach(function(element){ 
+            if(str.length==i)
+                textAreaContent += "-"+ element;
+            else
+                textAreaContent += "-"+ element+"\n";
+            i++;
+        });
+        $(textareaname).val(textAreaContent);  
+        })
 
-        i++;
-      }
+        $(display).click(function(){
+            $(this).css(display,"none");
+        $(textareaname).css(display,"");
+        var currentText= $(textareaname).val();
+        $(textareaname).val(currentText);
+            $(textareaname).focus();
+        });
 
-      function addtostepstable() {
-        let i = $(".addrecipe-form").find("textarea[name^='steps']").length;
-        let template = `
-            <div class="row" id="step">
-                <h4>Step ${i+1}:</h4>
-                <div class="col-md-6 form-group" id="steps">
-                    <textarea
-                        name="steps[${i}]"
-                        class="form-control"
-                        placeholder="Steps to Make"
-                        required
-                    ></textarea>
-                    <div class="validate"></div>
-                    <button class="remove-step">Remove</button>
-                </div>
-            </div>
-            `;
+        $(textareaname).blur(function(){
+        var currentText=$(textareaname).val();
+        var plainText=currentText.replace(/-/g, "")
+        var splitText=plainText.split("\n");
+        console.log(splitText);
+            htmlContent='';
+            splitText.forEach(element => htmlContent += "<li>"+element+"</li>");
+            $(display).html(htmlContent);
+        
+            $(this).css(display,"none");
+        $(display).css(display,"");
+        })
 
-        let container = document.getElementById('step');
-        let div = document.createElement("div");
-        div.innerHTML = template;
-        container.appendChild(div);
+        $(textareaname).keyup(function(e) {
+        var code = e.keyCode ? e.keyCode : e.which;
+        if (code == 13) {  
+                    var text=$(this).val();
+                text+="-";
+                $(this).val(text);
+            }
+        });
 
-        i++;
-      }
+      // scripts for add steps  
+        let display2 = '#display_steps';
+        let textareaname2 = '#steps';
 
-      function removestep(){}
-      function removeingredient(){}
+        $(document).ready(function(){
+            str.forEach(element => htmlContent += "<li>"+element+"</li>");
+            $(display2).html(htmlContent);
+            var i=1;
+            str.forEach(function(element){ 
+            if(str.length==i)
+                textAreaContent += "-"+ element;
+            else
+                textAreaContent += "-"+ element+"\n";
+            i++;
+        });
+        $(textareaname2).val(textAreaContent);  
+        })
+
+        $(display2).click(function(){
+            $(this).css(display,"none");
+        $(textareaname2).css(display,"");
+        var currentText= $(textareaname2).val();
+        $(textareaname2).val(currentText);
+            $(textareaname2).focus();
+        });
+
+        $(textareaname2).blur(function(){
+        var currentText=$(textareaname2).val();
+        var plainText=currentText.replace(/-/g, "")
+        var splitText=plainText.split("\n");
+        console.log(splitText);
+            htmlContent='';
+            splitText.forEach(element => htmlContent += "<li>"+element+"</li>");
+            $(display2).html(htmlContent);
+        
+            $(this).css(display2,"none");
+        $(display2).css(display2,"");
+        })
+
+        $(textareaname2).keyup(function(e) {
+        var code = e.keyCode ? e.keyCode : e.which;
+        if (code == 13) {  
+                    var text=$(this).val();
+                text+="-";
+                $(this).val(text);
+            }
+        });
     </script>
   </body>
 </html>

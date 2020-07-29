@@ -54,30 +54,23 @@
             >
 
             <!-- INGREDIENTS -->
-            <div class="container" id="ingredient">
               <div class="row">
-                <div class="col-md-2 form-group" id="qty">
-                  <textarea
-                    name="qty[0]"
-                    class="form-control"
-                    placeholder="Qty"
-                  ></textarea>
-                  <div class="validate"></div>
-                </div>
-                <div class="col-md-4 form-group" id="ingredients">
-                  <textarea
-                    name="ingredients[0]"
-                    class="form-control"
-                    placeholder="Ingredient"
+                <div class="col-md-6 form-group" id="qty">
+                <textarea 
+                    id="ingredients" 
+                    name="ingredients"
+                    placeholder="Qty & Ingredients" 
+                    class="message form-control" 
                     required
-                  ></textarea>
-                  <div class="validate"></div>
+                    ></textarea>
+                <div 
+                    id="display_ingredients" 
+                    class="message" 
+                    style="overflow-y:auto; display:none" 
+                    ></div>
+                    <div class="validate"></div>
                 </div>
               </div>
-            </div>
-            <button onclick="addtoingredienttable()">
-              <i class="fas fa-plus-square">Add Ingredient</i>
-            </button>
 
             <!-- SUMMARY -->
             <div class="row">
@@ -93,23 +86,23 @@
             </div>
 
             <!-- STEPS -->
-            <div class="container" id="step">
               <div class="row">
-              <h4>Step 1:</h4>
-                <div class="col-md-6 form-group" id="steps">
-                  <textarea
-                    name="steps[0]"
-                    class="form-control"
-                    placeholder="Steps to Make"
+                <div class="col-md-6 form-group">
+                <textarea 
+                    id="steps" 
+                    name="steps" 
+                    placeholder="Steps"
+                    class="message form-control" 
                     required
-                  ></textarea>
-                  <div class="validate"></div>
+                    ></textarea>
+                <div 
+                    id="display_steps" 
+                    class="message" 
+                    style="overflow-y:auto; display:none" 
+                    ></div>
+                <div class="validate"></div>
                 </div>
               </div>
-            </div>
-            <button onclick="addtostepstable()">
-              <i class="fas fa-plus-square">Add Step</i>
-            </button>
 
             <!-- AUTHOR -->
             <div class="row">
