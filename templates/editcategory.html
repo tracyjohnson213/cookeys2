@@ -2,18 +2,31 @@
 {% extends 'base.html' %} {% block content %}
 
 <main id="main">
-  <!-- ======= Breadcrumbs ======= -->
-  <section id="breadcrumbs" class="breadcrumbs">
-    <div class="container"></div>
-  </section>
-  <!-- End Breadcrumbs -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+          <div class="col-lg-9 text-center text-lg-left">
+            <!--<h3>Call To Action</h3>-->
+            <p></p>
+            <p> Do you want to fix this listing or add a new one?.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="{{url_for('add_category')}}">Add Category</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
 
   <!-- ======= Category Display ======= -->
     <section id="category" class="category">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Current Categories</h2>
+          <h2>{{category.recipe_category}}</h2>
         </div>
 
         <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
@@ -21,7 +34,6 @@
           <div class="col-lg-5">
             <div class="info">
               <div class="row">
-                <h4>{{category.recipe_category}}</h4>
                 <p>{{category.category_desc}}</p>
               </div>
             <div class="row">

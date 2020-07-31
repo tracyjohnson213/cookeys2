@@ -2,15 +2,24 @@
 {% extends 'base.html' %} {% block content %}
 
 <main id="main">
-  <!-- ======= Breadcrumbs ======= -->
-  <section id="breadcrumbs" class="breadcrumbs">
-    <div class="container">
-        <a href="{{url_for('get_categories')}}">Categories</a>
-        <a class="float-right cta-btn" href="{{url_for('add_category')}}">Add Category</a>
-    </div>
-  </section>
-  
-  <!-- End Breadcrumbs -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+          <div class="col-lg-9 text-center text-lg-left">
+            <!--<h3>Call To Action</h3>-->
+            <p></p>
+            <p> You don't see the type of cookies you want to bake.  Let's update the list and see how many will add to it!</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="{{url_for('add_category')}}">Add Category</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
 
   <!-- ======= Categories Section ======= -->
     <section id="icon-boxes" class="icon-boxes">

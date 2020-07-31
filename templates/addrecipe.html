@@ -2,11 +2,28 @@
 {% extends 'base.html' %} {% block content %}
 
 <main id="main">
-  <!-- ======= Breadcrumbs ======= -->
-  <section id="breadcrumbs" class="breadcrumbs">
-    <div class="container"></div>
-  </section>
-  <!-- End Breadcrumbs -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+          <div class="col-lg-9 text-center text-lg-left">
+            <!--<h3>Call To Action</h3>-->
+            <p></p>
+            <p> Did you check that we had this one?  Search and check.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <!--<a class="cta-btn align-middle" href="#">Call To Action</a>-->
+            <form action="">
+                <input type="text">
+                <button type="submit"><i class="icofont-search align-middle"></i></button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
 
   <!-- ======= Add Recipe Form ======= -->
   <section id="addrecipe-form" class="addrecipe-form">
@@ -18,7 +35,7 @@
             We would love to see your favorites! All fields are required!
           </p>
           <form action="{{ url_for('insert_recipe')}}" method="POST">
-            <p>Recipe</p>
+            <p>Recipe Name</p>
             <!-- COOKIE NAME -->
             <div class="row">
               <div class="col-md-6 form-group">
