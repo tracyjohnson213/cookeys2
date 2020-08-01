@@ -10,3 +10,5 @@ vscode:
     - eventyret.bootstrap-4-cdn-snippet@1.6.0:AtNd6GnbCYVpmUkOaFXs3A==
     - esbenp.prettier-vscode@4.3.0:jkl8NYpF/GzsahVpjggK0Q==
     - kevinglasson.cornflakes-linter@0.4.0:Sgfmpf9YWoF5/BDJu2xn0w==
+    - hbenl.vscode-test-explorer@2.19.1:2dP09nbHm3ScIYwcx8M5GQ==
+    - littlefoxteam.vscode-python-test-adapter@0.4.5:AjFDI5oxInml/vtCNspL6w==
